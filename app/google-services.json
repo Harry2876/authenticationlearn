@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "345679977142",
+    "project_id": "authentication-test-6621f",
+    "storage_bucket": "authentication-test-6621f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345679977142:android:866391e95d6f10f54a2417",
+        "android_client_info": {
+          "package_name": "com.example.authenticationlearn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCo3GwUYBWt3FIXu_PTeADBjNNazUSEqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
