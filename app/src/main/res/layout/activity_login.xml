@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_background"
+    tools:context=".LoginActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="Welcome Back"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.69" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="Login to Get Exciting Offers"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/emailorphn"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/textinput_bg"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:hint="Email or Phone Number"
+        android:textColorHint="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/sendotpbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="Send Otp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailorphn" />
+
+    <EditText
+        android:id="@+id/otpbox"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/textinput_bg"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:hint="Enter Otp"
+        android:textColorHint="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailorphn" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otpbox" />
+
+    <TextView
+        android:id="@+id/forgotpassbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="1dp"
+        android:clickable="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="forgot Password?"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/otpbox"
+        app:layout_constraintTop_toBottomOf="@+id/otpbox" />
+
+    <TextView
+        android:id="@+id/ortxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Or"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/logintxt"
+        app:layout_constraintEnd_toEndOf="@+id/logintxt" />
+
+    <TextView
+        android:id="@+id/logintxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="51dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Login Using"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <Button
+        android:id="@+id/lggooglebtn"
+        android:layout_width="71dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="124dp"
+        android:backgroundTint="#00FFFFFF"
+        app:icon="@drawable/google"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:iconSize="45dp"
+        app:iconTintMode="multiply"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lgfbbtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logintxt"
+        app:layout_constraintVertical_bias="0.071" />
+
+    <Button
+        android:id="@+id/lgfbbtn"
+        android:layout_width="71dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="136dp"
+        android:backgroundTint="#00FFFFFF"
+        app:icon="@drawable/facebook"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:iconSize="45dp"
+        app:iconTintMode="multiply"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logintxt"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/registerbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:clickable="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="Don't Have Account? Register"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/lgfbbtn"
+        app:layout_constraintStart_toStartOf="@+id/lgfbbtn"
+        app:layout_constraintTop_toBottomOf="@+id/lgfbbtn" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

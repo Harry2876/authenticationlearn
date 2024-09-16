@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_background"
+    tools:context=".SignupActivity">
+
+
+    <TextView
+        android:id="@+id/welcometxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="34dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Welcome"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/infotxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/infotxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="175dp"
+        android:layout_marginBottom="61dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Signup To Acess New Content"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/spemailphn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/spemailphn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="26dp"
+        android:background="@drawable/textinput_bg"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:hint="Email or Phone Number"
+        android:textColorHint="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/spotp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infotxt" />
+
+    <EditText
+        android:id="@+id/spotp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="21dp"
+        android:background="@drawable/textinput_bg"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:hint="Enter Otp"
+        android:textColorHint="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/spname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spemailphn" />
+
+    <EditText
+        android:id="@+id/spname"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="439dp"
+        android:background="@drawable/textinput_bg"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:hint="Enter Your Name"
+        android:textColorHint="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spotp" />
+
+    <TextView
+        android:id="@+id/ortxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Or"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spname" />
+
+    <TextView
+        android:id="@+id/signuptxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Signup Using"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ortxt" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="21dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="SignUp"
+        app:layout_constraintBottom_toTopOf="@+id/ortxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/spsendotpbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:clickable="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="Send Otp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spname" />
+
+    <Button
+        android:id="@+id/spgooglebtn"
+        android:layout_width="71dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="124dp"
+        android:backgroundTint="#00FFFFFF"
+        app:icon="@drawable/google"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:iconSize="45dp"
+        app:iconTintMode="multiply"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spfbbtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signuptxt"
+        app:layout_constraintVertical_bias="0.071" />
+
+    <Button
+        android:id="@+id/spfbbtn"
+        android:layout_width="71dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="132dp"
+        android:backgroundTint="#00FFFFFF"
+        app:icon="@drawable/facebook"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:iconSize="45dp"
+        app:iconTintMode="multiply"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signuptxt"
+        app:layout_constraintVertical_bias="0.005" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
