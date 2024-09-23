@@ -2,6 +2,7 @@ package com.example.authenticationlearn
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -48,6 +49,10 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var callbacks: OnVerificationStateChangedCallbacks
 
+    private var resendTimer : CountDownTimer? = null
+
+    private var canResend = false
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,14 +74,20 @@ class LoginActivity : AppCompatActivity() {
         googleBtn = findViewById(R.id.lggooglebtn)
         registerBtn = findViewById(R.id.registerbtn)
 
+
+        //Initialising Firebase
+        auth = Firebase.auth
+
+        //setting language code
+        auth.setLanguageCode("fr")
+
         //declaring register button functionality
         registerBtn?.setOnClickListener {
             val intent = Intent(this@LoginActivity, SignupActivity::class.java)
             startActivity(intent)
         }
 
-        //Initialising Firebase
-        auth = Firebase.auth
+
 
         //Initialize phone auth callback
         callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -115,13 +126,56 @@ class LoginActivity : AppCompatActivity() {
                 //Save Verification id and resending token so we can use them later
                 storedVerificationId = verificationId
                 resendToken = token
+                Toast.makeText(this@LoginActivity, "OTP Sent", Toast.LENGTH_SHORT).show()
+                startResendOtpTimer()
             }
 
             //End of callbacks
         }
 
+        //Send otp Button Functionality
+        sendOtpBtn?.setOnClickListener {
 
-    }
+                val phoneNumber = contactBox?.text.toString().trim()
+                //Handle phone Number length and prefix
+                if (phoneNumber.isNotEmpty() && phoneNumber.length == 10) {
+                    if (canResend) {
+                        resendVerificationCode("+91$phoneNumber", resendToken)
+                    }
+                    startPhoneNumberVerification("+91$phoneNumber")
+                } else {
+                    Toast.makeText(this, "Enter a Valid Phone Number", Toast.LENGTH_SHORT).show()
+                }
+
+        }
+
+        //Adding Login Button Functionality
+        loginBtn?.setOnClickListener {
+            val code = otpBox?.text.toString().trim()
+
+            //Handling Callbacks for the otp entered
+
+            //if the otp entered is correct
+            if (code.isNotEmpty() && storedVerificationId != null) {
+                verifyPhoneNumberWithCode(storedVerificationId,code)
+            } else if (
+                //if the otp entered is incorrect
+                code.isNotEmpty() && storedVerificationId != code) {
+                Toast.makeText(this, "Wrong OTP Entered", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                //if no otp entered
+                Toast.makeText(this, "Enter the OTP", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
+    } //end of oncreate method
+
+
+
+
+
 
     //checking user on start
     override fun onStart() {
@@ -148,6 +202,7 @@ class LoginActivity : AppCompatActivity() {
     private fun verifyPhoneNumberWithCode(verificationId : String?, code : String) {
         //start code verification
         val credential = PhoneAuthProvider.getCredential(verificationId!!,code)
+        signInWithPhoneAuthCredential(credential)
     }
 
     // [START resend_verification]
@@ -168,6 +223,26 @@ class LoginActivity : AppCompatActivity() {
     }
     // [END resend_verification]
 
+    //Adding timer for resend otp functionality
+    private fun startResendOtpTimer() {
+        val totalTime: Long = 60000 // 60 seconds
+        val interval: Long = 1000 // 1 second
+
+        resendTimer = object : CountDownTimer(totalTime, interval) {
+            override fun onTick(millisUntilFinished: Long) {
+                val secondsRemaining = millisUntilFinished / 1000
+                sendOtpBtn?.text = "Resend OTP in $secondsRemaining s"
+                sendOtpBtn?.isEnabled = false
+            }
+
+            override fun onFinish() {
+                canResend = true
+                sendOtpBtn?.isEnabled = true
+                sendOtpBtn?.text = "Resend OTP"
+            }
+        }.start()
+    }
+
 
 
 
@@ -180,18 +255,27 @@ class LoginActivity : AppCompatActivity() {
                     Log.d(TAG,"SigninWithCredential:success")
 
                     val user = task.result?.user
+                    updateUI(user)
                 } else {
                     //sign in failed , display a message and updatee the ui
                     Log.w(TAG,"signInWithCredential:failure",task.exception)
                     if (task.exception is FirebaseAuthInvalidCredentialsException){
                         //The verification code entered was incorrect
                     }
+                    updateUI(null)
                     //update ui
                 }
             }
     }
 
     private fun updateUI(user: FirebaseUser? = auth.currentUser){
+        if (user != null) {
+            val main = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(main)
+            Toast.makeText(this, "Login Successfull", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show()
+        }
     }
 
     companion object {
